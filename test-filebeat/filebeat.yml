@@ -3,8 +3,8 @@ filebeat.prospectors:
   paths:
     - /var/beats_logs/*.log
   fields:
-    source: platform
     owner: rentsoft
-    env: dev
+    env: prod
+    source: test
 output.logstash:
   hosts: ["logstash:5043"]
