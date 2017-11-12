@@ -33,5 +33,13 @@ services:
 #        source: ./settings/
 #        target: /usr/share/logstash/config/
 
+  test-filebeat:
+    build:
+      context: test-filebeat/.
+    volumes:
+      - type: bind
+        source: ./logs/
+        target: /var/beats_logs/
+
 volumes:
   esdata:
