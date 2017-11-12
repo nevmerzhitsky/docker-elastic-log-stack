@@ -3,4 +3,4 @@ filebeat.prospectors:
   paths:
     - /var/beats_logs/*.log
 output.logstash:
-  hosts: ["localhost:5043"]
+  hosts: ["logstash:5043"]
