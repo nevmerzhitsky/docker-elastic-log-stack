@@ -23,8 +23,6 @@ services:
   logstash:
     build:
       context: logstash/.
-    environment:
-      - XPACK_MONITORING_ELASTICSEARCH_PASSWORD
     depends_on:
       - elasticsearch
     volumes:
