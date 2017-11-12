@@ -23,19 +23,20 @@ services:
   logstash:
     build:
       context: logstash/.
+    environment:
+      - XPACK_MONITORING_ELASTICSEARCH_PASSWORD
     depends_on:
       - elasticsearch
     volumes:
       - type: bind
         source: ./logstash/pipeline/
         target: /usr/share/logstash/pipeline/
-#      - type: bind
-#        source: ./settings/
-#        target: /usr/share/logstash/config/
 
   test-filebeat:
     build:
       context: test-filebeat/.
+    depends_on:
+      - logstash
     volumes:
       - type: bind
         source: ./logs/
